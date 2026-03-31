@@ -1,78 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUMBER GAME</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <div class="tag">// game_v1.0</div>
-        <div class="title">NUMBER<br>GAME</div>
-        <div class="subtitle">GUESS A NUMBER BETWEEN 1 AND 100</div>
+  <div class="header">
+    <div class="tag">1 → 100</div>
+    <div class="title">GUESS.</div>
+    <div class="subtitle">How many tries will it take?</div>
+  </div>
+
+  <div class="card">
+    <div class="range-bar">
+      <span class="range-num">1</span>
+      <div class="range-track">
+        <div class="range-fill" id="rangeFill"></div>
+        <div class="range-indicator" id="rangeIndicator"></div>
+      </div>
+      <span class="range-num">100</span>
     </div>
 
-    <div class="card">
-        <!-- Range visual -->
-        <div class="range-bar">
-            <span class="range-num" id="rangeMin">1</span>
-            <div class="range-track">
-                <div class="range-fill" id="rangeFill"></div>
-                <div class="range-indicator" id="rangeIndicator"></div>
-            </div>
-            <span class="range-num" id="rangeMax">100</span>
-        </div>
-
-        <!-- Feedback -->
-        <div class="feedback">
-            <div class="feedback-text" id="feedbackText">
-                <span class="feedback-icon">_</span> WAITING FOR INPUT...
-            </div>
-        </div>
-
-        <!-- Input -->
-        <div class="input-row">
-            <div class="input-wrap">
-                <span class="input-label">Your guess</span>
-                <input type="number" id="guessInput" min="1" max="100" placeholder="???" autofocus>
-            </div>
-            <button class="btn-guess" id="guessBtn">FIRE</button>
-        </div>
-        <div class="error-msg" id="errorMsg"></div>
-
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-val accent" id="statAttempts">0</div>
-                <div class="stat-key">Attempts</div>
-            </div>
-            <div class="stat">
-                <div class="stat-val" id="statLow">—</div>
-                <div class="stat-key">Best Low</div>
-            </div>
-            <div class="stat">
-                <div class="stat-val" id="statHigh">—</div>
-                <div class="stat-key">Best High</div>
-            </div>
-        </div>
-
-        <!-- History -->
-        <div class="history-wrap" id="historyWrap">
-            <div class="history-label">// guess_history</div>
-            <div class="history-list" id="historyList"></div>
-        </div>
+    <div class="feedback">
+      <div class="feedback-text idle" id="feedbackText">Waiting for your first guess</div>
     </div>
 
-    <!-- Win panel -->
-    <div class="win-card" id="winCard">
-        <div class="win-title">NAILED IT.</div>
-        <div class="win-sub" id="winSub"></div>
-        <button class="btn-restart" id="restartBtn">↩ PLAY AGAIN</button>
+    <div class="input-row">
+      <div class="input-wrap">
+        <span class="input-label">Your guess</span>
+        <input type="number" id="guessInput" min="1" max="100" placeholder="—" autofocus>
+      </div>
+      <button class="btn-guess" id="guessBtn">GO</button>
     </div>
+    <div class="error-msg" id="errorMsg"></div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-val accent" id="statAttempts">0</div>
+        <div class="stat-key">Guesses</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val low" id="statLow">—</div>
+        <div class="stat-key">Best low</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val high" id="statHigh">—</div>
+        <div class="stat-key">Best high</div>
+      </div>
+    </div>
+
+    <div class="history-wrap" id="historyWrap">
+      <div class="history-label">Guess history</div>
+      <div class="history-list" id="historyList"></div>
+    </div>
+  </div>
+
+  <div class="win-card" id="winCard">
+    <div class="win-title">Got it.</div>
+    <div class="win-sub" id="winSub"></div>
+    <button class="btn-restart" id="restartBtn">Play again</button>
+  </div>
 </div>
 
 <script src="index.js"></script>
